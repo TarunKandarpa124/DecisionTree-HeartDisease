@@ -5,9 +5,9 @@ from sklearn.preprocessing import StandardScaler, LabelEncoder
 import numpy as np
 
 # Load the model and preprocessing tools
-model = joblib.load('models/best_model.joblib')
-scaler = joblib.load('models/scaler.joblib')
-encoders = joblib.load('models/encoders.joblib')
+model = joblib.load('best_model.joblib')
+scaler = joblib.load('scaler.joblib')
+encoders = joblib.load('encoders.joblib')
 
 # Function to preprocess input data
 def preprocess_input(data, scaler, encoders, numeric_columns, categorical_columns):
@@ -28,7 +28,7 @@ def preprocess_input(data, scaler, encoders, numeric_columns, categorical_column
     return data
 
 # Load the training data to get column names
-data = pd.read_excel('data/heart_disease.xlsx', sheet_name='Heart_disease')
+data = pd.read_excel('heart_disease.xlsx', sheet_name='Heart_disease')
 data.dropna(inplace=True)
 
 X = data.drop(['fbs'], axis=1)

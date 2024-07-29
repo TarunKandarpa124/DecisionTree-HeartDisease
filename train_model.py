@@ -26,7 +26,7 @@ def preprocess_data(data):
     return data
 
 # Load the training data
-data = pd.read_excel('data/heart_disease.xlsx', sheet_name='Heart_disease')
+data = pd.read_excel('heart_disease.xlsx', sheet_name='Heart_disease')
 
 # Preprocess the data
 data = preprocess_data(data)
@@ -159,9 +159,9 @@ print(f"Tree2 Train ROC AUC score: {train_roc_auc2:.4f}")
 print(f"Tree2 Test ROC AUC score: {test_roc_auc2:.4f}")
 
 # Save the best model and preprocessing tools
-joblib.dump(best_model, 'models/best_model.joblib')
-joblib.dump(scaler, 'models/scaler.joblib')
-joblib.dump(encoders, 'models/encoders.joblib')
+joblib.dump(best_model, 'best_model.joblib')
+joblib.dump(scaler, 'scaler.joblib')
+joblib.dump(encoders, 'encoders.joblib')
 
 print("Model training and evaluation completed and saved.")
 
@@ -169,5 +169,5 @@ print("Model training and evaluation completed and saved.")
 plt.figure(figsize=(20,10))
 plot_tree(best_model, feature_names=X_train.columns, class_names=['Class 0', 'Class 1'], filled=True, rounded=True)
 plt.title('Decision Tree Visualization')
-plt.savefig('models/best_model_tree.png')
+plt.savefig('best_model_tree.png')
 plt.show()
